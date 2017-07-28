@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import packt.selenium.chap3_9.pageobjects.Google;
 import packt.selenium.chap3_9.pageobjects.GoogleSearchPage;
 
@@ -21,9 +22,11 @@ public class SearchGoogleTest {
 
     @Before
     public void setUp() throws Exception {
+        System.setProperty("webdriver.gecko.driver","C:\\bin\\geckodriver.exe");
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
     }
     @After
     public void tearDown() throws Exception {
@@ -32,7 +35,10 @@ public class SearchGoogleTest {
     @Test
     public void testGoogleSearch(){
         googlePage = new Google(driver);
+
         searchPage = googlePage.goToSearchPage();
+
         searchPage.getNumberOfResults();
+
     }
 }
