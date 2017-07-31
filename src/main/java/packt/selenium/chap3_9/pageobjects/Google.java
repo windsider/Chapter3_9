@@ -17,14 +17,14 @@ public class Google {
         baseURL = "https://www.google.com/";
         driver.get(baseURL + "?gws_rd=cr,ssl&ei=qZlNVpOUMNCauQS0iYmoCA&fg=1");
         System.out.println(driver.getTitle());
-        if (!driver.getTitle().equals("Google -")){
+        if (!driver.getTitle().equals("Google")){
             throw new WrongPageException("Incorrect page for Google Home page");
         }
     }
     public GoogleSearchPage goToSearchPage(){
         driver.findElement(By.id("lst-ib")).sendKeys("Mastering Selenium Testing Tools");
         driver.findElement(By.name("btnK")).click();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("resultStats")));
         return new GoogleSearchPage(driver);
     }
