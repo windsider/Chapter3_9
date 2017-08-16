@@ -11,7 +11,7 @@ public class GoogleSearchPage {
     public GoogleSearchPage(WebDriver driver){
         this.driver = driver;
         System.out.println(driver.getTitle());
-        if (!driver.getTitle().equals("Mastering Selenium Testing Tools - Поиск  Google")){
+        if (!driver.getTitle().equals("Mastering Selenium Testing Tools - Поиск в Google")){
             throw new WrongPageException("Incorrect page for Google Search page");
         }
     }
